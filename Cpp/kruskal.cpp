@@ -1,123 +1,95 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
-//DSU DATA STRUCURE
-//Path Compression + union by rank
+#define ff(i, a, b) for (int i = int(a); i < int(b); i++)
+#define ffn(i, n) ff(i, 0, n)
 
-class DSU{
-
-	int *parent;
-	int *rank;
-
-public:
-	DSU(int n){
-		parent = new int[n];
-		rank = new int[n];
-
-		//parent =-1 and rank = 1
-		for(int i=0;i<n;i++){
-
-			parent[i]=-1;
-			rank[i]=1;
-		}
-	}
-
-	//Find Function
-	int find(int i){
-		//base case
-		if(parent[i]==-1){
-			return i;
-		}
-		//otherwise
-		return parent[i] =find(parent[i]);
-	}
-
-
-	//Unite (union) function
-	void unite(int x,int y){
-		int s1=find(x);
-		int s2=find(y);
-
-		if(s1!=s2){
-			if(rank[s1]<rank[s2]){
-				parent[s1]=s2;
-				rank[s2]+=rank[s2];
-			}
-			else{
-				parent[s2]=s1;
-				rank[s1]+=rank[s1];
-			}
-		}		
-	}
-
-
+struct edge
+{
+    int u;
+    int v;
+    int w;
 };
 
-
-class Graph{
-	//edges in the form of edge list
-	//vector<edge> edgeList;
-	vector<vector<int> > edgeList;
-	int V;
-
-public:
-	Graph(int V){
-		this->V=V;
-	}
-
-	void addEdge(int x,int y,int w){
-		edgeList.push_back({w,x,y});
-	}
-
-	//KRUSKAL 
-	int kruskal_mst(){
-		//Main logic -- Easy !!
-
-		//1. Sorting all the edges based on weights
-		sort(edgeList.begin(),edgeList.end());
-
-		DSU s(V);
-
-		int ans=0;
-		for(auto edge: edgeList){
-			int w= edge[0];
-			int x= edge[1];
-			int y= edge[2];
-
-			//we need to check if it forms a cycle or not
-			//if both x and y belong to diff dsu sets
-			//take that edge in mst if it doen't form a cycle
-			if(s.find(x)!=s.find(y)){
-				s.unite(x,y);
-				ans+=w;
-			}
-
-		}
-		return ans;
-	}
+struct point
+{
+    int parent;
+    int rank;
 };
 
-int main(){
-	
-	Graph g(4);
-	g.addEdge(0,1,1);
-	g.addEdge(1,3,3);
-	g.addEdge(3,2,4);
-	g.addEdge(2,0,2);
-	g.addEdge(0,3,2);
-	g.addEdge(1,2,2);
-	/*
-	int n,m;
-	cin>>n>>m;
-	Graph g(n);
-	for(int i=0;i<m;i++){
-		int x,y,w;
-		cin>>x>>y>>w;
-		g.addEdge(x,y,w); //if nodes started from 0
-	}
-	*/
-	cout<<g.kruskal_mst()<<endl;
-	return 0;
+int comp(edge a, edge b)
+{
+    if (a.w == b.w)
+        return a.v < b.v;
+    return a.w < b.w;
+}
+
+int find(point subset[], int node)
+{
+    if (subset[node].parent == -1)
+        return node;
+    return subset[node].parent = find(subset, subset[node].parent);
+}
+
+void unionFun(point subset[], int xroot, int yroot)
+{
+    if (subset[yroot].rank >= subset[xroot].rank)
+    {
+        subset[xroot].parent = yroot;
+        subset[yroot].rank += subset[xroot].rank;
+    }
+    else
+    {
+        subset[yroot].parent = xroot;
+        subset[xroot].rank += subset[yroot].rank;
+    }
+}
+
+void algo_krus(vector<edge> graph, int V, int E)
+{
+    sort(graph.begin(), graph.end(), comp);
+    point subset[V];
+    int cost = 0;
+
+    ffn(i, V)
+    {
+        subset[i].parent = -1;
+        subset[i].rank = 1;
+    }
+
+    int cnt = 0;
+    vector<edge> ans;
+    for (int i = 0; cnt < V - 1, i < E; i++)
+    {
+        edge node = graph[i];
+        int u = node.u;
+        int v = node.v;
+        int w = node.w;
+
+        int xroot = find(subset, u);
+        int yroot = find(subset, v);
+
+        if (xroot != yroot)
+        {
+            cost += w;
+            ans.push_back(node);
+            unionFun(subset, xroot, yroot);
+        }
+    }
+    cout << cost << endl;
+}
+
+int main()
+{
+    int V, E, a, b, c;
+    cin >> V;
+    cin >> E;
+    vector<edge> graph;
+    ffn(i, E)
+    {
+        cin >> a >> b >> c;
+        graph.push_back({a, b, c});
+    }
+    algo_krus(graph, V, E);
+    return 0;
 }
