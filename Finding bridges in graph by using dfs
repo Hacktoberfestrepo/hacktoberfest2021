@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#define IOS                  \
+	ios::sync_with_stdio(0); \
+	cin.tie(0);              \
+	cout.tie(0);
+#define endl "\n"
+#define ll long long int 
+#define pb push_back
+#define ii pair<int,int>
+#define vi vector<int>
+#define vl vector<ll>
+#define vii vector<ii>
+#define pq priority_queue<int,vi,greater<int> >
+using namespace std;
+vi arr[10001];
+int vis[10001];
+int low_time[11];
+int in_time[11];
+int timer;
+void dfs(int node,int par)
+{
+    vis[node]=1;
+    in_time[node]=low_time[node]=timer;
+    timer++;
+    for(int child : arr[node])
+    {
+        if(child==par) continue;
+        if(vis[child]==1) // backedge.
+        low_time[node]=min(low_time[node],in_time[child]);
+        else // forward edge
+        {
+            dfs(child,node);
+            if(low_time[child]>in_time[node])
+            cout<<node<<" - "<<child<<"is a bridge\n";
+            low_time[node]=min(low_time[node],low_time[child]);
+        }
+    }
+}
+int main()
+{
+   IOS;
+   int vertices,edges;
+   cin>>vertices>>edges;
+   int u,v;
+   while(edges--)
+   {
+       cin>>u>>v;
+       arr[u].pb(v);
+       arr[v].pb(u);
+   }
+    dfs(1,-1);
+} 
