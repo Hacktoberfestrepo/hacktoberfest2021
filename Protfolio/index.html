@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="About Akash Yadav" />
+    <meta name="author" content="Akash Yadav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik:300,500,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Modak&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Portfolio - Akash Yadav</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello.</h1>
+      <p style="font-weight: 500; font-size: 2.2em; display: inline-block;">
+        I am Akash Yadav, simply&nbsp;<div class="text text-1">@</div><div class="text text-2">A</div><div class="text text-5">k</div><div class="text text-4">a</div><div class="text text-6">s</div><div class="text text-7">h</div>
+      </p>
+        <div class="hello">
+          👋<br><br>
+        </div>
+        
+        <div class="card-1">
+          <p class="info">
+            🙋🏻‍♂️  I'm currently studying &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information Technology &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engineering with minor in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Management from Cluster &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Innovation Centre, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;University of Delhi, India <br><br>
+          </p>
+        </div>
+        <div class="card-2">
+          <p class="info">
+            🌱 I’m currently learning &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flutter, Python and JS. <br><br>
+          </p>
+        </div>
+        <div class="card-3">
+          <p class="info">
+            💬 Ask me about HTML, CSS, Java, Python, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaScript, Node.JS,MongoDB, Flutter, Dart. <br><br>
+          </p>
+        </div>
+        <div class="card-4">
+          <p class="info">
+            📫 How to reach me: <a href="mailto:akshaykumar23399@gmail.com">✉️Email</a>  &nbsp; <a href="https://github.com/akshaykumar23399" > 🔗Github </a> <br><br>
+          </p>
+        </div>
+        <div class="card-5">
+          <p class="info">
+            ⚡ Fun fact: I'm not real🤞🏻 <br><br>
+          </p>
+        </div>
+        
+    </div>
+    <div class="toggle-dark">
+      <input type="checkbox" name="theme" id="switch" />
+      <label for="switch">Toggle</label>
+    </div>
+    <div class="card-6">
+      <img class="cover-photo" src="Akash (2).jpg" alt="Akash Yadav" >
+    </div>
+
+    <script>
+      const checkbox = document.querySelector('input[name=theme]');
+      const dark = localStorage.getItem('theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      checkbox.checked = dark;
+
+      checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          trans(true);
+        } else {
+          trans(false);
+        }
+      });
+
+      const trans = (dark) => {
+        document.documentElement.classList.add('transition');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        window.setTimeout(() => {
+          document.documentElement.classList.remove('transition')
+        }, 750)
+      }
+    </script>
+  </body>
+</html>
