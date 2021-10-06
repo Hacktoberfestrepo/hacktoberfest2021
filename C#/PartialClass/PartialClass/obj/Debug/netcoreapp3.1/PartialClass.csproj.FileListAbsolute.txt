@@ -1,0 +1,13 @@
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.exe
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.deps.json
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.runtimeconfig.json
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.runtimeconfig.dev.json
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.dll
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\bin\Debug\netcoreapp3.1\PartialClass.pdb
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.csproj.AssemblyReference.cache
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.AssemblyInfoInputs.cache
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.AssemblyInfo.cs
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.csproj.CoreCompileInputs.cache
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.dll
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.pdb
+C:\Users\Safal\Desktop\Practice\PartialClass\PartialClass\obj\Debug\netcoreapp3.1\PartialClass.genruntimeconfig.cache
