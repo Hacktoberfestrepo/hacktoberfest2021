@@ -1,0 +1,33 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+string isPalindrome(string S)
+{
+	// Stores the reverse of the
+	// string S
+	string P = S;
+
+	reverse(P.begin(), P.end());
+
+	
+	if (S == P) {
+		
+		return "Yes";
+	}
+	// Otherwise
+	else {
+		// return "No"
+		return "No";
+	}
+}
+
+
+int main()
+{
+	string S = "ABCDCBA";
+	cout << isPalindrome(S);
+
+	return 0;
+}
