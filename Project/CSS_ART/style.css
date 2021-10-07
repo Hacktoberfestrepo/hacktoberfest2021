@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flag {
+    width: 494px;
+    height: 260px;
+    margin: 5% auto 1% auto;
+    position: relative;
+    box-shadow: 3px 3px 9px 3px rgba(0, 0, 0, 0.4);
+}
+/* Styling the stripes  */
+.stripe {
+    height: 20px;
+}
+
+/* Red Stripe  */
+.stripe:nth-child(odd){
+    background-color: #B22234; 
+}
+
+/* White Stripe */
+.stripe:nth-child(even){
+    background-color: #fff;
+}
+
+/* Canton  */
+.canton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 197.6px;
+    height: 140px;
+    background-color: #3C3B6E;
+    padding: 2px 0 3px 0;
+    margin: 0;
+}
+
+/* Styling the row of stars  */
+.star-row {
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Arrangement 1 */
+.star-row:nth-child(odd){
+    justify-content: space-around;
+}
+
+/* Arrangement 2 */
+.star-row:nth-child(even){
+    justify-content: space-evenly;
+}
+
+/* Star */
+.star {
+    display: block;
+    color: #fff;
+}
+
+/* Message  */
+.message {
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1.1px;
+}
