@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int n, i, k;
+    int counter = 0;
+    bool isprime;
+
+
+    cout << "Enter a positive integer n: "; 
+
+    cin >> n;
+
+    for(int k = 2; k <= n; k++){
+      
+        isprime = true;
+
+        for(int i = 2; i <= k - 1; i++){
+            if(k%i == 0){
+                isprime = false;
+            }
+        }
+
+        if(isprime){
+            cout << k << "\t";
+            counter++;
+        }
+    }
+
+
+    cout << "\nThere are " << counter << " primes less than " << n << endl;
+    cout << "The sum of the largest two numbers is " << n+(n-1);
+
+  return 0;
+}
