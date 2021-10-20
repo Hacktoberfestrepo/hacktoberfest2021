@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile and run C++",
+            "type": "shell",
+            "command": "g++ ${file} -o ${fileBasenameNoExtension}  && ./${fileBasenameNoExtension} ",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "compile and run sfml",
+            "type": "shell",
+            "command": "g++ ${file} -o ${fileBasenameNoExtension} -lsfml-graphics -lsfml-window -lsfml-system  && ./${fileBasenameNoExtension} ",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher":[]
+        },
+        {
+            "type": "shell",
+            "label": "g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "label": "compile and run x64-assembley",
+            "type": "shell",
+            "command": "fasm ${file} && ./${fileBasenameNoExtension}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        
+        {
+            "label": "compile and run Python",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }        
+           ],
+}
