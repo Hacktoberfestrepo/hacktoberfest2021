@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int reverse(int x) {
+        
+        long int n=x,rem,rev=0;
+        while(n!=0)
+        {
+            rem = n%10;
+            rev = rev*10 + rem;
+            n /= 10;
+            
+        }
+        if(rev<pow(-2,31) || rev>(pow(2,31))-1)
+            rev=0;
+        
+        return rev;
+    }
+};
