@@ -54,10 +54,7 @@ class Graph {
         DFSUtil(v, visited);
     }
 
-    // Driver Code
-
-
-    
+  
     public static void main(String args[])
     {
         Graph g = new Graph(4);
