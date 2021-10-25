@@ -46,18 +46,18 @@ char input_to_end_the_call()
 
 void call()
 {
-    printf("Calling......\n");
+    printf("Calling...\n");
     delay();
-    printf("Ringing......\n");
+    printf("Ringing...\n");
     Sound();
-    printf("Connected.......\n");
+    printf("Connected...\n");
     char input1;
     input1 = input_to_end_the_call();
     if (input1 == 'Y')
         printf("Call Ended.\n");
     else if (input1 == 'N')
     {
-        printf("Please end the call. I'm about to die.....\n");
+        printf("Please end the call. I'm about to die..\n");
         input_to_end_the_call();
     }
 }
@@ -71,20 +71,20 @@ void dialPad()
     printf("     |     |     \n");
     printf("  %c  |  %c  |  %c \n", num[1], num[2], num[3]);
 
-    printf("*****|*****|*****\n");
-    printf("     |     |     \n");
+    printf("****|****|****\n");
+    printf("    |    |     \n");
 
     printf("  %c  |  %c  |  %c \n", num[4], num[5], num[6]);
 
-    printf("*****|*****|*****\n");
-    printf("     |     |     \n");
+    printf("****|****|****\n");
+    printf("    |    |     \n");
 
     printf("  %c  |  %c  |  %c \n", num[7], num[8], num[9]);
 
-    printf("*****|*****|*****\n");
-    printf("     |     |     \n");
+    printf("****|****|*****\n");
+    printf("    |    |     \n");
 
-    printf("  %c  |  %c  |  %c \n", num[10], num[0], num[11]);
+    printf("  %c |  %c |  %c \n", num[10], num[0], num[11]);
 
     printf("     |     |     \n\n");
 }
@@ -92,7 +92,7 @@ void dialPad()
 void dial()
 {
     dialPad();
-    printf("Enter the phone number: \n");
+    printf("Enter  phone number: \n");
     scanf("%lld", &phoneno);
 }
 
@@ -114,9 +114,9 @@ void anonymousCall()
         printf("%d", phone_num[i]);
     }
     delay();
-    printf("\nRinging......\n");
+    printf("\nRinging...\n");
     Sound();
-    printf("Connected.......\n");
+    printf("Connected...\n");
     char input1;
     input1 = input_to_end_the_call();
     if (input1 == 'Y')
