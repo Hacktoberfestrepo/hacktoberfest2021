@@ -260,4 +260,4 @@ void display()
             ptr = ptr->next;
         }
     }
-} 
+} acceptthis pull request 
