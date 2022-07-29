@@ -18,7 +18,7 @@ int main() {
 	
 	int n = 3; 
     
-    ToH(n, 'A', 'B', 'C'); 
+    ToH(n, 'A', 'B', 'C');  // tower A, B , C
 	
 	return 0;
 }
