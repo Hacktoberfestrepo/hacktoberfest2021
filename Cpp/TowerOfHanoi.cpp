@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-
+// a recursive approach to tower of hanoi
 void ToH(int n, char A, char B, char C) 
 { 
     if (n == 1) 
@@ -18,7 +18,7 @@ int main() {
 	
 	int n = 3; 
     
-    ToH(n, 'A', 'B', 'C'); 
+    ToH(n, 'A', 'B', 'C');  // tower A, B , C
 	
 	return 0;
 }

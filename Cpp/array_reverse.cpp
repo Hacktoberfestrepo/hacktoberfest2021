@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// there is a reverse function in <algorithm> library to reverse arrays, strings etc.
+
 void reverseArray(int arr[], int start, int end, int n)
 {
     while (end > start)
