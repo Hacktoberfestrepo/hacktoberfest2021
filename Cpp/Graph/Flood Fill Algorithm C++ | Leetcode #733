@@ -1,0 +1,33 @@
+class Solution {
+public:
+    
+    //using depth first search
+    void dfs(vector<vector<int>>& image,int sr,int sc,int color,int totalrows , int totalcols,int celcol)
+    {
+        image[sr][sc]=color;
+        
+        //check in all 4 directions
+        vector<int> delta = {0,1,0,-1,0}; 
+        
+        for(int k=0;k<4;k++)
+        {
+            int delrow = sr+delta[k];
+            int delcol = sc+delta[k+1];
+            
+            if(delrow>=0 && delrow<totalrows && delcol>=0 && delcol<totalcols && image[delrow][delcol]==celcol)
+                dfs(image,delrow,delcol,color,totalrows,totalcols,celcol);
+            
+        }
+        
+    }
+    
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+                
+        int cellcolor = image[sr][sc];
+        if(cellcolor == color)return image; //no need to color , bcz its already filled with that color
+        int n = image.size();
+        int m = image[0].size();
+        dfs(image,sr,sc,color,n,m,cellcolor);
+        return image;
+    }
+};
