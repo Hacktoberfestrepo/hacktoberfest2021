@@ -1,0 +1,74 @@
+class Solution {
+public:
+
+ 
+    //visits the whole graph and marks all elements as visited
+    //here i have used depth first search in matrix itself
+    
+    
+    //here the indexing is done like this 
+    
+    //0 1 2 3 4 -> index
+    //1 2 3 4 5 -> nodes
+    
+    void traverse(int i,vector<vector<int>>& matrix,vector<int> &visited)
+    {
+        visited[i] = 1;
+        int y = 0;
+        for(auto x: matrix[i])
+        {
+            if(x==1 && !visited[y])  //here y is the column
+            {
+                traverse(y,matrix,visited);
+            }
+            y++;
+        }
+        
+    }
+    
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        
+        int n = isConnected.size();
+        vector<int> visited(n,0);
+        //int visited[n]={0};  - > i dont know why array is giving error
+        int count = 0;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(!visited[i])  //that means we encounter a connected component
+            {
+                count++;
+                //i am passing the matrix itself , other way can be to make a adjacency list and pass that list , so that we dont have to traverse inside matrix
+                
+                traverse(i,isConnected,visited); //visits the entire graph
+            }
+        }
+        
+        return count;
+        
+        
+        
+        /*
+        TO MAKE ADJACENCY LIST FROM A GIVEN ADJACENCY MATRIX WE ALREADY KNOW
+        TO SEE THE WHOLE CODE GO TO GFG
+        
+        int n = isConnected.size();
+        vector<int> adj[n]={0};
+        vector<int> adjLS[n];
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(isConnected[i][j]==1 && i!=j) 
+                {
+    // i!=j means that we don't store if i and j are same i.e if it is single node 3 to 3 is marked 1 
+                    adjLs[i].push_back(j);
+                    adjLs[j].push_back(i);
+                }
+                    
+            }
+        }
+        */
+    }
+};
