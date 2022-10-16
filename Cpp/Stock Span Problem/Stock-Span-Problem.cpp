@@ -44,7 +44,7 @@ int main()
     {
         cout<<i-v[i]<<" ";
     }
-
+    cout<<endl;
     return 0;
 }
 
