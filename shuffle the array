@@ -1,0 +1,17 @@
+class Solution {
+public:
+    vector<int> shuffle(vector<int>& nums, int n) {
+        int j=n,i,x=0;
+        vector<int> ans(nums.size(),0);
+        
+        for(i=0;i<j;i++)
+        {
+            ans[x]=nums[i];
+            ans[x+1]=nums[n];
+            x+=2;
+            n++;
+        }
+        
+        return ans;
+    }
+};

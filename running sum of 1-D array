@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+       int i=0,j=0;
+        vector<int> ans(nums.size(),0);
+        for(; j<nums.size();j++)
+        {
+            if(i==nums.size())
+            {
+                break;
+            }
+            else if(i==0)
+            {
+                ans[j]=nums[i];
+            }
+            else
+            {
+                ans[j]=ans[j-1]+nums[i];
+            }
+            i+=1;
+        }
+       return ans; 
+    }
+    
+};
